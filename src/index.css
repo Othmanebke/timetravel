@@ -22,13 +22,6 @@ body {
   background-color: var(--color-ink);
   color: #f4f1ea;
   font-family: var(--font-sans);
-  cursor: none;
-}
-
-@media (hover: none), (pointer: coarse) {
-  body {
-    cursor: auto;
-  }
 }
 
 /* Cinematic film-grain overlay, fixed above the background, below content */

@@ -6,7 +6,6 @@ import Quiz from "./components/Quiz";
 import BookingForm from "./components/BookingForm";
 import Chatbot from "./components/Chatbot";
 import Footer from "./components/Footer";
-import CustomCursor from "./components/CustomCursor";
 import ScrollProgress from "./components/ScrollProgress";
 import SectionDivider from "./components/SectionDivider";
 
@@ -21,7 +20,6 @@ function App() {
     <div className="min-h-screen bg-ink relative">
       <div className="grain-overlay" />
       <div className="vignette-overlay" />
-      <CustomCursor />
       <ScrollProgress />
       <Header />
       <main className="relative z-10">

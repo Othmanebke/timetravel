@@ -88,12 +88,12 @@ export default function Hero() {
         <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_0%,#0b0c10_100%)]" />
       </div>
 
-      {/* Decorative corner frame — premium editorial touch */}
-      <div className="absolute inset-6 md:inset-10 border border-white/10 pointer-events-none" />
-      <span className="absolute top-9 left-9 md:top-13 md:left-13 text-[10px] tracking-[0.3em] text-stone-500 uppercase">
+      {/* Decorative corner frame — premium editorial touch, cleared below the fixed header */}
+      <div className="absolute top-24 md:top-28 inset-x-6 md:inset-x-10 bottom-6 md:bottom-10 border border-white/10 pointer-events-none" />
+      <span className="absolute top-27 left-9 md:top-31 md:left-13 text-[10px] tracking-[0.3em] text-stone-500 uppercase">
         Est. 2026
       </span>
-      <span className="absolute top-9 right-9 md:top-13 md:right-13 text-[10px] tracking-[0.3em] text-stone-500 uppercase">
+      <span className="absolute top-27 right-9 md:top-31 md:right-13 text-[10px] tracking-[0.3em] text-stone-500 uppercase">
         N°001 — Chrono-Voyages
       </span>
 

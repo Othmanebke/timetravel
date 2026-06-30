@@ -25,7 +25,16 @@ export default function DestinationModal({ destination, onClose, onBook }) {
             transition={{ duration: 0.35, ease: "easeOut" }}
             className="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto glass-panel rounded-2xl"
           >
-            <div className={`h-40 bg-gradient-to-br ${destination.gradient} relative`}>
+            <div
+              className={`h-40 bg-gradient-to-br ${destination.gradient} relative overflow-hidden`}
+            >
+              {destination.image && (
+                <img
+                  src={destination.image}
+                  alt={`${destination.name}, ${destination.era}`}
+                  className="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-90"
+                />
+              )}
               <button
                 onClick={onClose}
                 className="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/30 text-white flex items-center justify-center hover:bg-black/50"

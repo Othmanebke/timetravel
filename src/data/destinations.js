@@ -11,6 +11,7 @@ export const destinations = [
       "1889 : Paris s'apprête à inaugurer la Tour Eiffel, prouesse d'ingénierie qui fera scandale avant de devenir le symbole de la ville. Flânez dans les salons impressionnistes, dansez au Moulin Rouge naissant et croisez les pionniers de la photographie et du cinématographe.",
     color: "paris",
     gradient: "from-[#3a2a0f] via-[#7a5c1e] to-[#d4af37]",
+    image: "/images/paris.png",
     icon: "🗼",
     highlights: [
       "Visite privée du chantier de la Tour Eiffel",
@@ -34,6 +35,7 @@ export const destinations = [
       "Bien avant l'humanité, la Terre vibrait au pas des plus grandes créatures qu'elle ait jamais portées. Observez troupeaux de tricératops et vols de ptérosaures depuis nos capsules d'observation blindées, au cœur de forêts tropicales infinies.",
     color: "cretace",
     gradient: "from-[#0f2a18] via-[#1f6b3f] to-[#3fae6a]",
+    image: "/images/cretace.jpg",
     icon: "🦖",
     highlights: [
       "Safari blindé au cœur de la jungle crétacée",
@@ -57,6 +59,7 @@ export const destinations = [
       "Florence en 1504 est le centre du monde artistique : Michel-Ange achève son David, Léonard de Vinci esquisse ses machines visionnaires, les Médicis financent les chefs-d'œuvre qui traverseront les siècles. Une immersion totale dans le génie humain.",
     color: "florence",
     gradient: "from-[#2a160c] via-[#7a3d1e] to-[#b0623a]",
+    image: "/images/florence.jpg",
     icon: "🎨",
     highlights: [
       "Installation du David sur la Piazza della Signoria",

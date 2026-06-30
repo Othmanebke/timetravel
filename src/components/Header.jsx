@@ -30,12 +30,14 @@ export default function Header() {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.7, ease: "easeOut" }}
-      className={`fixed top-0 inset-x-0 z-50 transition-colors duration-500 ${
-        scrolled || mobileOpen ? "glass-panel" : "bg-transparent"
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
+        scrolled || mobileOpen
+          ? "glass-panel shadow-lg shadow-black/30"
+          : "bg-gradient-to-b from-ink/50 to-transparent backdrop-blur-[2px]"
       }`}
     >
       <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
-        <a href="#top" className="flex items-center gap-2 font-display text-xl tracking-wide" data-cursor-hover>
+        <a href="#top" className="flex items-center gap-2 font-display text-xl tracking-wide">
           <span className="text-gold text-2xl">⏳</span>
           <span className="text-gradient-gold font-semibold">TimeTravel Agency</span>
         </a>

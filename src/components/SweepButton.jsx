@@ -29,7 +29,7 @@ export default function SweepButton({
   const v = variants[variant];
   return (
     <Comp
-      className={`group relative isolate ${display} items-center justify-center overflow-hidden px-8 py-3 text-sm uppercase tracking-widest font-medium transition-colors duration-300 ${v.base} ${v.hoverText} ${className}`}
+      className={`group relative isolate ${display} items-center justify-center overflow-hidden px-8 py-3 text-sm uppercase tracking-widest font-medium transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-gold/15 active:translate-y-0 active:shadow-none ${v.base} ${v.hoverText} ${className}`}
       {...props}
     >
       <motion.span
