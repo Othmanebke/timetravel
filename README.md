@@ -5,8 +5,7 @@ scène 3 destinations : **Paris 1889** (Belle Époque), **Crétacé -65M** (Pré
 **Florence 1504** (Renaissance). Projet réalisé avec génération de code assistée par IA
 ("vibe coding") et un agent conversationnel propulsé par l'API Mistral AI.
 
-> 👥 Groupe : _Nom Prénom 1, Nom Prénom 2, Nom Prénom 3, Nom Prénom 4_
-> _(à compléter par chaque membre avant le dépôt sur Moodle)_
+> 👤 Réalisé en solo par : _Ton Nom Prénom_ — _(à compléter avant le dépôt sur Moodle)_
 
 ## 🔗 Liens
 
@@ -83,9 +82,10 @@ Approche mobile-first : grilles en une colonne par défaut puis étendues au bre
   l'agence et de prompts successifs (structure, design, animations, intégration API)
 - **Chatbot** : Mistral AI, modèle `mistral-small-latest`, via l'API officielle
   (`@mistralai/mistralai`)
-- **Visuels** : dégradés CSS générés sur-mesure par destination (pas d'IA générative d'image
-  utilisée dans cette version — peut être remplacée par les visuels du premier projet
-  TimeTravel si disponibles, voir `src/data/destinations.js`)
+- **Visuels** : dégradés CSS générés sur-mesure par destination en arrière-plan par défaut.
+  Le hero accepte aussi une vidéo de fond générée par IA (3 décors des destinations) :
+  déposer le fichier dans `public/videos/hero-bg.mp4` (+ `hero-bg-poster.jpg` en option) —
+  voir `src/components/Hero.jsx`. Sans ce fichier, le dégradé CSS animé reste utilisé seul.
 
 ## 📦 Installation locale
 

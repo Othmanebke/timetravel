@@ -1,6 +1,12 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import SweepButton from "./SweepButton";
+
+// Drop your generated hero video at public/videos/hero-bg.mp4 (and an optional
+// public/videos/hero-bg-poster.jpg). Until that file exists the video silently
+// fails to load and the animated CSS gradient below is used as-is.
+const HERO_VIDEO_SRC = "/videos/hero-bg.mp4";
+const HERO_VIDEO_POSTER = "/videos/hero-bg-poster.jpg";
 
 const container = {
   hidden: {},
@@ -23,6 +29,7 @@ const TICKER_ITEMS = [
 
 export default function Hero() {
   const sectionRef = useRef(null);
+  const [videoReady, setVideoReady] = useState(false);
   const mvX = useMotionValue(0);
   const mvY = useMotionValue(0);
   const springX = useSpring(mvX, { stiffness: 60, damping: 20 });
@@ -60,6 +67,23 @@ export default function Hero() {
           animate={{ rotate: [0, 8, -6, 0], scale: [1, 1.08, 1.02, 1] }}
           transition={{ duration: 24, repeat: Infinity, ease: "easeInOut" }}
         />
+
+        {/* Optional generated background video — fades in only once it can actually play */}
+        <motion.video
+          src={HERO_VIDEO_SRC}
+          poster={HERO_VIDEO_POSTER}
+          autoPlay
+          loop
+          muted
+          playsInline
+          onCanPlay={() => setVideoReady(true)}
+          onError={() => setVideoReady(false)}
+          initial={false}
+          animate={{ opacity: videoReady ? 0.55 : 0 }}
+          transition={{ duration: 1.2 }}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#0b0c10_85%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_0%,#0b0c10_100%)]" />
       </div>
