@@ -13,6 +13,24 @@ scène 3 destinations : **Paris 1889** (Belle Époque), **Crétacé -65M** (Pré
 - Repository : https://github.com/Othmanebke/timetravel
 - Démo en ligne : _à compléter après déploiement Vercel_
 
+## 🗺️ Architecture & navigation (planning)
+
+Structure de navigation définie en amont du développement (une seule page, ancrage par
+section) :
+
+```
+Header (sticky, menu mobile burger)
+ → Hero (CTA "Découvrir les destinations" / "Trouver mon époque")
+ → #destinations (3 destinations, layout éditorial alterné)
+ → #quiz (recommandation personnalisée en 4 questions)
+ → #booking (formulaire de réservation)
+Footer
+Chatbot (widget flottant, présent sur toute la page)
+```
+
+Approche mobile-first : grilles en une colonne par défaut puis étendues au breakpoint `md`
+(Tailwind), navigation desktop remplacée par un menu burger en dessous de 768px.
+
 ## 🛠️ Stack technique
 
 - **React 19 + Vite** — framework front-end et tooling

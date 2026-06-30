@@ -21,6 +21,7 @@ const variants = {
 export default function SweepButton({
   as: Comp = "button",
   variant = "filled",
+  display = "inline-flex",
   className = "",
   children,
   ...props
@@ -28,7 +29,7 @@ export default function SweepButton({
   const v = variants[variant];
   return (
     <Comp
-      className={`group relative isolate inline-flex items-center justify-center overflow-hidden px-8 py-3 text-sm uppercase tracking-widest font-medium transition-colors duration-300 ${v.base} ${v.hoverText} ${className}`}
+      className={`group relative isolate ${display} items-center justify-center overflow-hidden px-8 py-3 text-sm uppercase tracking-widest font-medium transition-colors duration-300 ${v.base} ${v.hoverText} ${className}`}
       {...props}
     >
       <motion.span
