@@ -1,4 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
+import SweepButton from "./SweepButton";
 
 export default function DestinationModal({ destination, onClose, onBook }) {
   return (
@@ -71,12 +72,9 @@ export default function DestinationModal({ destination, onClose, onBook }) {
                     à partir de {destination.price} €
                   </p>
                 </div>
-                <button
-                  onClick={() => onBook(destination)}
-                  className="px-6 py-3 bg-gold text-ink font-medium uppercase tracking-widest text-sm hover:bg-gold-soft transition-colors"
-                >
+                <SweepButton variant="filled" onClick={() => onBook(destination)}>
                   Réserver ce voyage
-                </button>
+                </SweepButton>
               </div>
             </div>
           </motion.div>

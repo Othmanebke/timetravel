@@ -15,21 +15,23 @@ export default function Destinations({ onBook }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.7 }}
-          className="text-center mb-16"
+          className="mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-6"
         >
-          <span className="uppercase tracking-[0.35em] text-xs text-gold-soft">
-            Nos époques
-          </span>
-          <h2 className="font-display text-4xl md:text-5xl font-semibold text-white mt-3">
-            Trois destinations,<span className="text-gradient-gold"> une seule machine</span>
-          </h2>
-          <p className="text-stone-400 mt-4 max-w-xl mx-auto">
+          <div>
+            <span className="uppercase tracking-[0.35em] text-xs text-gold-soft">
+              Nos époques — 03 destinations
+            </span>
+            <h2 className="font-display text-4xl md:text-5xl font-semibold text-white mt-3">
+              Trois destinations,<span className="text-gradient-gold"> une seule machine</span>
+            </h2>
+          </div>
+          <p className="text-stone-400 max-w-sm md:text-right">
             Chaque voyage est conçu avec une précision chirurgicale par nos chrono-guides
             experts. Choisissez votre époque.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="border-b border-white/10 md:border-none">
           {destinations.map((d, i) => (
             <DestinationCard key={d.id} destination={d} index={i} onOpen={setActive} />
           ))}

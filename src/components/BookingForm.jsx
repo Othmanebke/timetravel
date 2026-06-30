@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { destinations } from "../data/destinations";
+import SweepButton from "./SweepButton";
 
 const today = new Date().toISOString().split("T")[0];
 
@@ -157,12 +158,9 @@ export default function BookingForm({ presetDestination }) {
                   )}
                 </div>
 
-                <button
-                  type="submit"
-                  className="w-full py-4 bg-gold text-ink font-medium uppercase tracking-widest text-sm hover:bg-gold-soft transition-colors"
-                >
+                <SweepButton type="submit" variant="filled" className="w-full">
                   Confirmer ma réservation
-                </button>
+                </SweepButton>
               </motion.form>
             ) : (
               <motion.div
@@ -190,12 +188,9 @@ export default function BookingForm({ presetDestination }) {
                 <p className="text-stone-500 text-sm mt-3">
                   Un chrono-guide vous contactera à {confirmed.email} sous 24h.
                 </p>
-                <button
-                  onClick={() => setConfirmed(null)}
-                  className="mt-6 px-6 py-3 border border-white/20 text-stone-300 uppercase tracking-widest text-sm hover:border-gold/50 transition-colors"
-                >
+                <SweepButton variant="ghost" className="mt-6" onClick={() => setConfirmed(null)}>
                   Nouvelle réservation
-                </button>
+                </SweepButton>
               </motion.div>
             )}
           </AnimatePresence>

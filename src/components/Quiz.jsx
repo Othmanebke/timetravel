@@ -2,6 +2,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { quizQuestions, computeRecommendation } from "../data/quiz";
 import { getDestinationById } from "../data/destinations";
+import SweepButton from "./SweepButton";
 
 export default function Quiz({ onBook }) {
   const [step, setStep] = useState(0);
@@ -92,18 +93,12 @@ export default function Quiz({ onBook }) {
                   {result.description}
                 </p>
                 <div className="flex flex-wrap gap-3 justify-center mt-7">
-                  <button
-                    onClick={() => onBook(result)}
-                    className="px-6 py-3 bg-gold text-ink font-medium uppercase tracking-widest text-sm hover:bg-gold-soft transition-colors"
-                  >
+                  <SweepButton variant="filled" onClick={() => onBook(result)}>
                     Réserver {result.name}
-                  </button>
-                  <button
-                    onClick={restart}
-                    className="px-6 py-3 border border-white/20 text-stone-300 uppercase tracking-widest text-sm hover:border-gold/50 transition-colors"
-                  >
+                  </SweepButton>
+                  <SweepButton variant="ghost" onClick={restart}>
                     Refaire le quiz
-                  </button>
+                  </SweepButton>
                 </div>
               </motion.div>
             )}

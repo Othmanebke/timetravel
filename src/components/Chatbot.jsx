@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { renderLiteMarkdown } from "../lib/markdownLite";
 
 const SUGGESTIONS = [
   "Quelle destination pour un amateur d'art ?",
@@ -86,13 +87,22 @@ export default function Chatbot() {
               {messages.map((m, i) => (
                 <div
                   key={i}
-                  className={`max-w-[85%] px-4 py-2.5 rounded-2xl text-sm leading-relaxed ${
-                    m.role === "user"
-                      ? "ml-auto bg-gold text-ink rounded-br-sm"
-                      : "mr-auto bg-white/5 text-stone-200 rounded-bl-sm border border-white/10"
-                  }`}
+                  className={`flex items-end gap-2 ${m.role === "user" ? "justify-end" : ""}`}
                 >
-                  {m.content}
+                  {m.role === "assistant" && (
+                    <span className="shrink-0 w-7 h-7 rounded-full bg-gold/15 border border-gold/30 flex items-center justify-center text-xs">
+                      ⏳
+                    </span>
+                  )}
+                  <div
+                    className={`max-w-[80%] px-4 py-2.5 rounded-2xl text-sm leading-relaxed ${
+                      m.role === "user"
+                        ? "bg-gold text-ink rounded-br-sm"
+                        : "bg-white/5 text-stone-200 rounded-bl-sm border border-white/10"
+                    }`}
+                  >
+                    {renderLiteMarkdown(m.content)}
+                  </div>
                 </div>
               ))}
               {loading && (

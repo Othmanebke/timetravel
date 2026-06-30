@@ -1,4 +1,6 @@
-import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import SweepButton from "./SweepButton";
 
 const container = {
   hidden: {},
@@ -12,17 +14,46 @@ const item = {
   show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
 };
 
+const TICKER_ITEMS = [
+  "PARIS · 1889",
+  "CRÉTACÉ · -65 000 000",
+  "FLORENCE · 1504",
+  "TIMETRAVEL AGENCY",
+];
+
 export default function Hero() {
+  const sectionRef = useRef(null);
+  const mvX = useMotionValue(0);
+  const mvY = useMotionValue(0);
+  const springX = useSpring(mvX, { stiffness: 60, damping: 20 });
+  const springY = useSpring(mvY, { stiffness: 60, damping: 20 });
+  const blobX = useTransform(springX, [-0.5, 0.5], [-30, 30]);
+  const blobY = useTransform(springY, [-0.5, 0.5], [-30, 30]);
+
+  useEffect(() => {
+    const handle = (e) => {
+      const rect = sectionRef.current?.getBoundingClientRect();
+      if (!rect) return;
+      mvX.set((e.clientX - rect.left) / rect.width - 0.5);
+      mvY.set((e.clientY - rect.top) / rect.height - 0.5);
+    };
+    window.addEventListener("mousemove", handle);
+    return () => window.removeEventListener("mousemove", handle);
+  }, [mvX, mvY]);
+
   return (
     <section
       id="top"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-ink"
+      ref={sectionRef}
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-ink"
     >
-      {/* Animated gradient "video-like" background */}
+      {/* Animated gradient "video-like" background with mouse parallax */}
       <div className="absolute inset-0">
         <motion.div
           className="absolute -inset-[10%] opacity-70"
           style={{
+            x: blobX,
+            y: blobY,
             background:
               "radial-gradient(circle at 20% 30%, rgba(212,175,55,0.25), transparent 45%), radial-gradient(circle at 80% 20%, rgba(63,174,106,0.2), transparent 40%), radial-gradient(circle at 50% 80%, rgba(176,98,58,0.25), transparent 45%)",
           }}
@@ -32,6 +63,15 @@ export default function Hero() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#0b0c10_85%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_0%,#0b0c10_100%)]" />
       </div>
+
+      {/* Decorative corner frame — premium editorial touch */}
+      <div className="absolute inset-6 md:inset-10 border border-white/10 pointer-events-none" />
+      <span className="absolute top-9 left-9 md:top-13 md:left-13 text-[10px] tracking-[0.3em] text-stone-500 uppercase">
+        Est. 2026
+      </span>
+      <span className="absolute top-9 right-9 md:top-13 md:right-13 text-[10px] tracking-[0.3em] text-stone-500 uppercase">
+        N°001 — Chrono-Voyages
+      </span>
 
       <motion.div
         variants={container}
@@ -59,20 +99,30 @@ export default function Hero() {
           Une agence, trois époques, une seule promesse&nbsp;: l'inoubliable.
         </motion.p>
         <motion.div variants={item} className="mt-10 flex flex-wrap items-center justify-center gap-4">
-          <a
-            href="#destinations"
-            className="px-8 py-3 bg-gold text-ink font-medium uppercase tracking-widest text-sm hover:bg-gold-soft transition-colors"
-          >
+          <SweepButton as="a" href="#destinations" variant="filled">
             Découvrir les destinations
-          </a>
-          <a
-            href="#quiz"
-            className="px-8 py-3 border border-gold/50 text-gold-soft uppercase tracking-widest text-sm hover:bg-gold/10 transition-colors"
-          >
+          </SweepButton>
+          <SweepButton as="a" href="#quiz" variant="outline">
             Trouver mon époque
-          </a>
+          </SweepButton>
         </motion.div>
       </motion.div>
+
+      {/* Marquee ticker */}
+      <div className="absolute bottom-20 left-0 right-0 overflow-hidden border-y border-white/10 py-3 bg-ink/40">
+        <motion.div
+          className="flex gap-12 whitespace-nowrap text-xs tracking-[0.3em] text-stone-400"
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
+        >
+          {[...TICKER_ITEMS, ...TICKER_ITEMS, ...TICKER_ITEMS].map((t, i) => (
+            <span key={i} className="flex items-center gap-12">
+              {t}
+              <span className="text-gold/50">✦</span>
+            </span>
+          ))}
+        </motion.div>
+      </div>
 
       <motion.div
         className="absolute bottom-8 left-1/2 -translate-x-1/2 text-stone-400 text-xs uppercase tracking-widest"
