@@ -5,12 +5,12 @@ scène 3 destinations : **Paris 1889** (Belle Époque), **Crétacé -65M** (Pré
 **Florence 1504** (Renaissance). Projet réalisé avec génération de code assistée par IA
 ("vibe coding") et un agent conversationnel propulsé par l'API Mistral AI.
 
-> 👤 Réalisé en solo par : _Ton Nom Prénom_ — _(à compléter avant le dépôt sur Moodle)_
+> 👤 Réalisé en solo par : othmane bouakline m2
 
 ## 🔗 Liens
 
 - Repository : https://github.com/Othmanebke/timetravel
-- Démo en ligne : _à compléter après déploiement Vercel_
+- Démo en ligne : https://timetravel-xi.vercel.app/
 
 ## 🗺️ Architecture & navigation (planning)
 
@@ -130,6 +130,3 @@ timetravel/
 └── README.md
 ```
 
-## 📄 Licence
-
-Projet pédagogique — réalisé dans le cadre du module IA générative & Vibe Coding.
