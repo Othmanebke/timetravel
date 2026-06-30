@@ -29,9 +29,6 @@ export default function DestinationCard({ destination, onOpen, index }) {
           } transition-transform duration-700 ease-out group-hover:scale-105`}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent md:bg-gradient-to-r md:from-ink/10 md:to-transparent" />
-        <span className="absolute bottom-5 left-5 text-5xl drop-shadow-lg opacity-90">
-          {destination.icon}
-        </span>
         <span className="absolute top-5 right-5 text-xs uppercase tracking-widest text-white/80 border border-white/30 rounded-full px-3 py-1">
           {destination.year}
         </span>
