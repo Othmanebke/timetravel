@@ -37,8 +37,7 @@ export default function Header() {
       }`}
     >
       <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
-        <a href="#top" className="flex items-center gap-2 font-display text-xl tracking-wide">
-          <span className="text-gold text-2xl">⏳</span>
+        <a href="#top" className="flex items-center font-display text-xl tracking-wide">
           <span className="text-gradient-gold font-semibold">TimeTravel Agency</span>
         </a>
         <nav className="hidden md:flex items-center gap-8 text-sm uppercase tracking-widest text-stone-300">

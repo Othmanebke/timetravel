@@ -2,8 +2,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-white/10 py-12 px-6">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-stone-400">
-        <div className="flex items-center gap-2 font-display text-lg">
-          <span className="text-gold">⏳</span>
+        <div className="flex items-center font-display text-lg">
           <span className="text-gradient-gold font-semibold">TimeTravel Agency</span>
         </div>
         <p className="text-center md:text-left">
